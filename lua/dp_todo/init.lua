@@ -1,5 +1,3 @@
-local M  = {}
-
 local sta, B = pcall(require, 'dp_base')
 
 if not sta then return print('Dp_base is required!', debug.getinfo(1)['source']) end
@@ -13,6 +11,8 @@ if B.check_plugins {
     } then
   return
 end
+
+local M  = {}
 
 M.source = B.getsource(debug.getinfo(1)['source'])
 M.lua    = B.getlua(M.source)
@@ -54,21 +54,28 @@ end
 require 'todo-comments'.setup {
   keywords = {
     FIX      = { icon = ' ', alt = M.todos.fix, color = 'error', },
-    TODO     = { icon = ' ', alt = M.todos.todo, color = 'info', },
+    TODO     = { icon = '⍻ ', alt = M.todos.todo, color = 'info', },
     HACK     = { icon = ' ', alt = M.todos.hack, color = 'warning', },
     WARN     = { icon = ' ', alt = M.todos.warn, color = 'warning', },
     PERF     = { icon = ' ', alt = M.todos.perf, },
     NOTE     = { icon = ' ', alt = M.todos.note, color = 'hint', },
     TEST     = { icon = '⏲ ', alt = M.todos.test, color = 'test', },
-    FIXDONE  = { icon = ' ', alt = M.todo_done 'fix', color = 'error', },
+    FIXDONE  = { icon = ' ', alt = M.todo_done 'fix', color = 'info', },
     TODODONE = { icon = ' ', alt = M.todo_done 'todo', color = 'info', },
-    HACKDONE = { icon = ' ', alt = M.todo_done 'hack', color = 'warning', },
-    WARNDONE = { icon = ' ', alt = M.todo_done 'warn', color = 'warning', },
+    HACKDONE = { icon = ' ', alt = M.todo_done 'hack', color = 'info', },
+    WARNDONE = { icon = ' ', alt = M.todo_done 'warn', color = 'info', },
     PERFDONE = { icon = ' ', alt = M.todo_done 'perf', },
     NOTEDONE = { icon = ' ', alt = M.todo_done 'note', color = 'hint', },
-    TESTDONE = { icon = '⏲ ', alt = M.todo_done 'test', color = 'test', },
+    TESTDONE = { icon = '⏲ ', alt = M.todo_done 'test', color = 'info', },
+  },
+  highlight = {
+    comments_only = false,
   },
 }
+
+B.set_timeout(200, function()
+  require 'todo-comments.highlight'.highlight_win(nil, 1)
+end)
 
 function M.telescope(what)
   local cwd = B.rep(vim.loop.cwd())
