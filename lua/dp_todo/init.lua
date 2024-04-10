@@ -7,6 +7,9 @@ if not sta then return print('Dp_base is required!', debug.getinfo(1)['source'])
 if B.check_plugins {
       -- 'git@github.com:peter-lyr/dp_init',
       'folke/which-key.nvim',
+      -- 'folke/todo-comments.nvim',
+      'peter-lyr/todo-comments.nvim',
+      'monaqa/dial.nvim',
     } then
   return
 end
