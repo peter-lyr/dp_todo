@@ -157,7 +157,6 @@ require 'dial.config'.augends:register_group {
 require 'which-key'.register {
   [']t'] = { function() require 'todo-comments'.jump_next() end, 'Next todo comment', mode = { 'n', 'v', }, silent = true, },
   ['[t'] = { function() require 'todo-comments'.jump_prev() end, 'Prev todo comment', mode = { 'n', 'v', }, silent = true, },
-  ['<leader>t<leader>'] = { name = 'TodoTelescope', },
   ['<leader>t<leader>f'] = { function() M.telescope 'FIX' end, 'TodoTelescope  FIX', mode = { 'n', 'v', }, silent = true, },
   ['<leader>t<leader>d'] = { function() M.telescope 'TODO' end, 'TodoTelescope TODO', mode = { 'n', 'v', }, silent = true, },
   ['<leader>t<leader>h'] = { function() M.telescope 'HACK' end, 'TodoTelescope HACK', mode = { 'n', 'v', }, silent = true, },
