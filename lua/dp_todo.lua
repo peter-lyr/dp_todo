@@ -120,7 +120,6 @@ local default = {
   augend.constant.new { elements = { 's8', 's16', 's32', 's64', }, },
   augend.constant.new { elements = { 'char', 'short', 'int', 'long', }, },
   -- date time
-  augend.constant.new { elements = { '周1', '周2', '周3', '周4', '周5', '周6', '周7', }, },
   augend.constant.new { elements = { '周一', '周二', '周三', '周四', '周五', '周六', '周日', }, },
   augend.date.alias['%-d.%-m.'],
   augend.date.alias['%-m/%-d'],
